@@ -93,26 +93,14 @@ export function ProjectsGrid({
               transition={{ duration: 0.5, delay: i * 0.04 }}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-elegant"
             >
-              {p.url ? (
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-left"
-                  aria-label={`Visit ${p.title} website`}
-                >
-                  <ProjectCardInner p={p} />
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => onOpen?.(p)}
-                  className="block w-full text-left"
-                  aria-label={`View ${p.title}`}
-                >
-                  <ProjectCardInner p={p} />
-                </button>
-              )}
+              <Link
+                to="/work/$slug"
+                params={{ slug: p.slug }}
+                className="block w-full text-left"
+                aria-label={`View ${p.title} case study`}
+              >
+                <ProjectCardInner p={p} />
+              </Link>
             </motion.article>
           ))}
         </AnimatePresence>

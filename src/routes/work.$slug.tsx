@@ -124,7 +124,7 @@ function ProjectDetailPage() {
 
             <h3 className="mt-10 font-display text-xl font-semibold">Scope of work</h3>
             <ul className="mt-4 space-y-2">
-              {project.scope.map((s) => (
+              {project.scope.map((s: string) => (
                 <li
                   key={s}
                   className="flex items-start gap-3 text-muted-foreground"
@@ -142,7 +142,7 @@ function ProjectDetailPage() {
                 Results
               </h3>
               <div className="mt-4 space-y-4">
-                {project.metrics.map((m) => (
+                {project.metrics.map((m: { label: string; value: string }) => (
                   <div key={m.label} className="border-b border-border pb-4 last:border-0 last:pb-0">
                     <div className="font-display text-3xl font-bold text-gradient-brand">
                       {m.value}
