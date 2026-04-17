@@ -1,17 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Hero } from "@/components/sections/hero";
 import { Trust } from "@/components/sections/trust";
 import { Services } from "@/components/sections/services";
 import { ProjectsGrid } from "@/components/sections/projects-grid";
-import { ProjectDialog } from "@/components/sections/project-dialog";
 import { Process } from "@/components/sections/process";
 import { Testimonials } from "@/components/sections/testimonials";
 import { ContactSection } from "@/components/sections/contact-form";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { AboutSnapshot } from "@/components/sections/about-snapshot";
 import { Reveal } from "@/components/reveal";
-import type { Project } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,8 +27,6 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const [active, setActive] = useState<Project | null>(null);
-
   return (
     <>
       <Hero />
@@ -56,7 +51,7 @@ function HomePage() {
               </p>
             </div>
           </Reveal>
-          <ProjectsGrid limit={6} showFilters={false} onOpen={setActive} />
+          <ProjectsGrid limit={6} showFilters={false} />
         </div>
       </section>
 
@@ -72,8 +67,6 @@ function HomePage() {
         title="Let's build something amazing together"
         subtitle="Tell us about your idea — we'll bring the strategy, design and engineering."
       />
-
-      <ProjectDialog project={active} onClose={() => setActive(null)} />
     </>
   );
 }
