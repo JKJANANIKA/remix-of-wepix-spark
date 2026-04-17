@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { ProjectsGrid } from "@/components/sections/projects-grid";
-import { ProjectDialog } from "@/components/sections/project-dialog";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Reveal } from "@/components/reveal";
-import type { Project } from "@/data/projects";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -23,8 +20,6 @@ export const Route = createFileRoute("/work")({
 });
 
 function WorkPage() {
-  const [active, setActive] = useState<Project | null>(null);
-
   return (
     <>
       <section className="pt-36 pb-12 sm:pt-44">
@@ -37,8 +32,7 @@ function WorkPage() {
               Work that <span className="text-gradient-brand">moves the needle</span>
             </h1>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Filter by technology to see the kind of work we do best. Click any project for the
-              full case study with metrics, scope and outcomes.
+              Click any project for the full case study with metrics, scope and outcomes.
             </p>
           </Reveal>
         </div>
@@ -46,7 +40,7 @@ function WorkPage() {
 
       <section className="pb-24">
         <div className="mx-auto w-full max-w-7xl px-6">
-          <ProjectsGrid onOpen={setActive} />
+          <ProjectsGrid />
         </div>
       </section>
 
@@ -55,8 +49,6 @@ function WorkPage() {
         title="Let's create your next case study"
         subtitle="Bring us your goals — we'll bring the strategy, design and engineering to ship."
       />
-
-      <ProjectDialog project={active} onClose={() => setActive(null)} />
     </>
   );
 }
