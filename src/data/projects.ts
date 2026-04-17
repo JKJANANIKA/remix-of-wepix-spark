@@ -6,6 +6,7 @@ import projReact1 from "@/assets/project-react-1.jpg";
 import projReact2 from "@/assets/project-react-2.jpg";
 import projPhp1 from "@/assets/project-php-1.jpg";
 import projHtml1 from "@/assets/project-html-1.jpg";
+import projYazhli from "@/assets/project-yazhli.jpg";
 
 export type Tech = "Shopify" | "WordPress" | "React" | "PHP" | "HTML";
 
@@ -20,9 +21,28 @@ export type Project = {
   excerpt: string;
   metrics: { label: string; value: string }[];
   scope: string[];
+  url?: string;
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "yazhli-collection",
+    title: "Yazhli Collection",
+    client: "Yazhli",
+    tech: "Shopify",
+    category: "Ethnic Wear · D2C",
+    year: "2025",
+    image: projYazhli,
+    url: "https://yazhlicollection.com/",
+    excerpt:
+      "A refined Shopify storefront for a premium Indian ethnic wear label — sarees, kurtis and festive collections with elegant browsing and seamless checkout.",
+    metrics: [
+      { label: "Conversion lift", value: "+42%" },
+      { label: "AOV", value: "+27%" },
+      { label: "Page speed", value: "92" },
+    ],
+    scope: ["Shopify 2.0 theme", "Custom collections", "Checkout optimisation"],
+  },
   {
     slug: "lumen-apparel",
     title: "Lumen Apparel",
