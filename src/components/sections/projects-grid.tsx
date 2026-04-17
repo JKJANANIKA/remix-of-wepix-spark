@@ -6,6 +6,42 @@ import { Reveal } from "@/components/reveal";
 import { PROJECTS, TECH_FILTERS, type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
+function ProjectCardInner({ p }: { p: Project }) {
+  return (
+    <>
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img
+          src={p.image}
+          alt={`${p.title} — ${p.category}`}
+          width={1280}
+          height={896}
+          loading="lazy"
+          className="h-full w-full scale-[1.02] object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent opacity-90" />
+        <div className="absolute left-4 top-4 flex gap-2">
+          <span className="rounded-full bg-background/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider backdrop-blur">
+            {p.tech}
+          </span>
+        </div>
+        <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/70 text-foreground backdrop-blur transition-transform duration-300 group-hover:rotate-45">
+          <ArrowUpRight className="h-4 w-4" />
+        </div>
+      </div>
+      <div className="space-y-2 p-5">
+        <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <span>{p.category}</span>
+          <span>{p.year}</span>
+        </div>
+        <h3 className="font-display text-xl font-semibold transition-colors group-hover:text-gradient-brand">
+          {p.title}
+        </h3>
+        <p className="line-clamp-2 text-sm text-muted-foreground">{p.excerpt}</p>
+      </div>
+    </>
+  );
+}
+
 export function ProjectsGrid({
   limit,
   showFilters = true,
@@ -68,42 +104,15 @@ export function ProjectsGrid({
                   <ProjectCardInner p={p} />
                 </a>
               ) : (
-              <button
-                type="button"
-                onClick={() => onOpen?.(p)}
-                className="block w-full text-left"
-                aria-label={`View ${p.title}`}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={`${p.title} — ${p.category}`}
-                    width={1280}
-                    height={896}
-                    loading="lazy"
-                    className="h-full w-full scale-[1.02] object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent opacity-90" />
-                  <div className="absolute left-4 top-4 flex gap-2">
-                    <span className="rounded-full bg-background/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider backdrop-blur">
-                      {p.tech}
-                    </span>
-                  </div>
-                  <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/70 text-foreground backdrop-blur transition-transform duration-300 group-hover:rotate-45">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
-                </div>
-                <div className="space-y-2 p-5">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span>{p.category}</span>
-                    <span>{p.year}</span>
-                  </div>
-                  <h3 className="font-display text-xl font-semibold transition-colors group-hover:text-gradient-brand">
-                    {p.title}
-                  </h3>
-                  <p className="line-clamp-2 text-sm text-muted-foreground">{p.excerpt}</p>
-                </div>
-              </button>
+                <button
+                  type="button"
+                  onClick={() => onOpen?.(p)}
+                  className="block w-full text-left"
+                  aria-label={`View ${p.title}`}
+                >
+                  <ProjectCardInner p={p} />
+                </button>
+              )}
             </motion.article>
           ))}
         </AnimatePresence>
