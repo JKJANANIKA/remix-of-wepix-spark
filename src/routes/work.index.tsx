@@ -3,7 +3,7 @@ import { ProjectsGrid } from "@/components/sections/projects-grid";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Reveal } from "@/components/reveal";
 
-export const Route = createFileRoute("/work")({
+export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
       { title: "Our Work — Wepix Digital Agency" },
