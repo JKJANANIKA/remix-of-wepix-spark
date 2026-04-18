@@ -46,6 +46,9 @@ export const Route = createFileRoute("/work/$slug")({
 
 function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
+  const currentIndex = PROJECTS.findIndex((p) => p.slug === project.slug);
+  const prevProject = currentIndex > 0 ? PROJECTS[currentIndex - 1] : PROJECTS[PROJECTS.length - 1];
+  const nextProject = currentIndex < PROJECTS.length - 1 ? PROJECTS[currentIndex + 1] : PROJECTS[0];
 
   return (
     <>
@@ -158,6 +161,45 @@ function ProjectDetailPage() {
                   </a>
                 </Button>
               )}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="mx-auto w-full max-w-6xl px-6">
+          <Reveal>
+            <div className="grid gap-4 border-t border-border pt-10 sm:grid-cols-2">
+              <Link
+                to="/work/$slug"
+                params={{ slug: prevProject.slug }}
+                className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
+              >
+                <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
+                  <ArrowLeft className="h-4 w-4" /> Previous project
+                </div>
+                <div className="mt-3 font-display text-xl font-semibold transition-colors group-hover:text-gradient-brand">
+                  {prevProject.title}
+                </div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {prevProject.category}
+                </div>
+              </Link>
+              <Link
+                to="/work/$slug"
+                params={{ slug: nextProject.slug }}
+                className="group rounded-2xl border border-border bg-card p-6 text-right transition-colors hover:border-primary/50"
+              >
+                <div className="flex items-center justify-end gap-2 text-xs uppercase tracking-wider text-muted-foreground">
+                  Next project <ArrowRight className="h-4 w-4" />
+                </div>
+                <div className="mt-3 font-display text-xl font-semibold transition-colors group-hover:text-gradient-brand">
+                  {nextProject.title}
+                </div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {nextProject.category}
+                </div>
+              </Link>
             </div>
           </Reveal>
         </div>
