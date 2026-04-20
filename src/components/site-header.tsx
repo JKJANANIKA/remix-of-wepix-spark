@@ -1,8 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, Moon, Sun, Sparkles, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -14,7 +13,6 @@ const NAV = [
 ] as const;
 
 export function SiteHeader() {
-  const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -74,15 +72,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={toggle}
-              aria-label="Toggle theme"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground"
-            >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
-
             <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
               <Link to="/contact">Start Project</Link>
             </Button>
