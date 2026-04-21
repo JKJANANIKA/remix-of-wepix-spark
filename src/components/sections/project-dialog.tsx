@@ -73,7 +73,7 @@ export function ProjectDialog({
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild variant="hero">
-                  <Link to="/contact" onClick={onClose}>
+                  <Link to="/" onClick={onClose}>
                     Start a similar project <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>

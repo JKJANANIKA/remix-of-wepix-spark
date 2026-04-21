@@ -5,7 +5,7 @@ export function SiteFooter() {
   return (
     <footer className="relative border-t border-border bg-card/30 mt-24">
       <div className="pointer-events-none absolute inset-x-0 -top-px mx-auto h-px max-w-3xl bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
+      <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand">
@@ -38,15 +38,6 @@ export function SiteFooter() {
               </a>
             ))}
           </div>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold">Studio</h4>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/work" className="transition-colors hover:text-foreground">Work</Link></li>
-            <li><Link to="/services" className="transition-colors hover:text-foreground">Services</Link></li>
-            <li><Link to="/about" className="transition-colors hover:text-foreground">About</Link></li>
-            <li><Link to="/contact" className="transition-colors hover:text-foreground">Contact</Link></li>
-          </ul>
         </div>
         <div>
           <h4 className="text-sm font-semibold">Get in touch</h4>

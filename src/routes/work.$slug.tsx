@@ -34,7 +34,7 @@ export const Route = createFileRoute("/work/$slug")({
         The case study you're looking for doesn't exist.
       </p>
       <Link
-        to="/work"
+        to="/"
         className="mt-6 inline-flex items-center gap-2 text-sm text-primary hover:underline"
       >
         <ArrowLeft className="h-4 w-4" /> Back to Work
@@ -56,7 +56,7 @@ function ProjectDetailPage() {
         <div className="mx-auto w-full max-w-6xl px-6">
           <Reveal>
             <Link
-              to="/work"
+              to="/"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" /> All Work
@@ -88,7 +88,7 @@ function ProjectDetailPage() {
                   </a>
                 </Button>
                 <Button asChild variant="glass" size="lg">
-                  <Link to="/contact">
+                  <Link to="/">
                     Start a similar project <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>

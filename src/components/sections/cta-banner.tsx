@@ -8,9 +8,9 @@ export function CtaBanner({
   title = "Let's build something amazing together.",
   subtitle = "From scrappy MVPs to flagship platforms — bring us the brief, we'll bring the craft.",
   primaryLabel = "Start Your Project",
-  primaryTo = "/contact",
+  primaryTo = "/",
   secondaryLabel = "Contact Us",
-  secondaryTo = "/contact",
+  secondaryTo = "/",
 }: {
   eyebrow?: string;
   title?: string;
@@ -43,12 +43,12 @@ export function CtaBanner({
               <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{subtitle}</p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <Button asChild variant="hero" size="lg">
-                  <Link to={primaryTo as "/contact"}>
+                  <Link to={primaryTo as "/"}>
                     {primaryLabel} <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="glass" size="lg">
-                  <Link to={secondaryTo as "/contact"}>
+                  <Link to={secondaryTo as "/"}>
                     <MessageSquare className="h-4 w-4" />
                     {secondaryLabel}
                   </Link>
