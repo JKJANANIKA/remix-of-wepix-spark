@@ -1,71 +1,65 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Hero } from "@/components/sections/hero";
-import { Trust } from "@/components/sections/trust";
-import { Services } from "@/components/sections/services";
 import { ProjectsGrid } from "@/components/sections/projects-grid";
-import { Process } from "@/components/sections/process";
-import { Testimonials } from "@/components/sections/testimonials";
-import { ContactSection } from "@/components/sections/contact-form";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { AboutSnapshot } from "@/components/sections/about-snapshot";
 import { Reveal } from "@/components/reveal";
+import { Services } from "@/components/sections/services";
+import { Trust } from "@/components/sections/trust";
+import { Process } from "@/components/sections/process";
+import { AboutSnapshot } from "@/components/sections/about-snapshot";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wepix — High-converting Shopify, WordPress, React & PHP builds" },
+      { title: "Our Work — Wepix Digital Agency" },
       {
         name: "description",
         content:
-          "Wepix is a digital agency that designs and engineers websites and products that convert. Shopify, WordPress, React and custom PHP solutions.",
+          "Selected projects by Wepix across Shopify, WordPress, React and custom PHP — from D2C ecommerce to SaaS dashboards and internal platforms.",
       },
-      { property: "og:title", content: "Wepix — Digital agency for ambitious brands" },
-      { property: "og:description", content: "200+ projects shipped. 98% client retention. Let's build yours." },
+      { property: "og:title", content: "Our Work — Wepix" },
+      { property: "og:description", content: "Browse our portfolio of high-converting digital builds." },
     ],
   }),
-  component: HomePage,
+  component: WorkPage,
 });
 
-function HomePage() {
+function WorkPage() {
   return (
     <>
-      <Hero />
-      <Trust />
-      <Services />
-
-      <section className="relative py-24 sm:py-32">
+      <section className="pt-36 pb-12 sm:pt-44">
         <div className="mx-auto w-full max-w-7xl px-6">
           <Reveal>
-            <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <span className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
-                  Selected work
-                </span>
-                <h2 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-                  Projects we're <span className="text-gradient-brand">proud of</span>
-                </h2>
-              </div>
-              <p className="max-w-md text-muted-foreground">
-                A small slice of recent builds across ecommerce, SaaS, fintech and education.
-                Every project shipped on time, on brief and built to scale.
-              </p>
-            </div>
+            <span className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+              Portfolio
+            </span>
+            <h1 className="mt-4 font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+              Work that <span className="text-gradient-brand">moves the needle</span>
+            </h1>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Click any project for the full case study with metrics, scope and outcomes.
+            </p>
           </Reveal>
-          <ProjectsGrid limit={6} showFilters={false} />
         </div>
       </section>
 
-      <CtaBanner />
+      <Services />
+
+      <Trust />
+
+      <section className="py-24">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <ProjectsGrid />
+        </div>
+      </section>
 
       <AboutSnapshot />
+
       <Process />
-      <Testimonials />
-      <ContactSection />
 
       <CtaBanner
-        eyebrow="One last nudge"
-        title="Let's build something amazing together"
-        subtitle="Tell us about your idea — we'll bring the strategy, design and engineering."
+        eyebrow="Want results like these?"
+        title="Let's create your next case study"
+        subtitle="Bring us your goals — we'll bring the strategy, design and engineering to ship."
       />
     </>
   );
