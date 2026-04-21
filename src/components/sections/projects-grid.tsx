@@ -110,7 +110,7 @@ export function ProjectsGrid({
         <Reveal>
           <div className="mt-12 flex justify-center">
             <Link
-              to="/work"
+              to="/"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all hover:border-primary/50 hover:text-foreground"
             >
               See all projects <ArrowUpRight className="h-4 w-4" />

@@ -59,13 +59,13 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
           <Button asChild variant="hero" size="xl">
-            <Link to="/work">
+            <Link to="/">
               View Our Work
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </Button>
           <Button asChild variant="glass" size="xl">
-            <Link to="/contact">
+            <Link to="/">
               <PlayCircle className="h-4 w-4" />
               Get a Free Consultation
             </Link>
