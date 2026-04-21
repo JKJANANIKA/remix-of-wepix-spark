@@ -2,6 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProjectsGrid } from "@/components/sections/projects-grid";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Reveal } from "@/components/reveal";
+import { Services } from "@/components/sections/services";
+import { Trust } from "@/components/sections/trust";
+import { Process } from "@/components/sections/process";
+import { AboutSnapshot } from "@/components/sections/about-snapshot";
 
 export const Route = createFileRoute("/work/")({
   head: () => ({
@@ -38,11 +42,19 @@ function WorkPage() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <Services />
+
+      <Trust />
+
+      <section className="py-24">
         <div className="mx-auto w-full max-w-7xl px-6">
           <ProjectsGrid />
         </div>
       </section>
+
+      <AboutSnapshot />
+
+      <Process />
 
       <CtaBanner
         eyebrow="Want results like these?"
