@@ -24,6 +24,8 @@ const CLIENTS: { name: string; url: string; logo: string }[] = [
 ];
 
 export function Trust() {
+  const loop = [...CLIENTS, ...CLIENTS];
+
   return (
     <section className="border-y border-border bg-card/30 py-12">
       <div className="mx-auto w-full max-w-7xl px-6">
@@ -32,24 +34,34 @@ export function Trust() {
             Trusted by ambitious teams across the globe
           </p>
         </Reveal>
-        <div className="mt-8 grid grid-cols-2 items-center gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5">
-          {CLIENTS.map((c, i) => (
-            <Reveal key={c.name} delay={(i % 10) * 0.03}>
-              <a
-                href={c.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${c.name}`}
-                className="group flex h-20 items-center justify-center rounded-xl border border-border bg-card/60 px-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
-              >
-                <img
-                  src={c.logo}
-                  alt={`${c.name} logo`}
-                  loading="lazy"
-                  className="max-h-12 w-auto max-w-[140px] object-contain opacity-80 transition-all group-hover:opacity-100"
-                />
-              </a>
-            </Reveal>
+      </div>
+
+      <div
+        className="group relative mt-8 overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
+        <div className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
+          {loop.map((c, i) => (
+            <a
+              key={`${c.name}-${i}`}
+              href={c.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${c.name}`}
+              className="flex h-20 w-[180px] shrink-0 items-center justify-center rounded-xl border border-border bg-card/60 px-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
+            >
+              <img
+                src={c.logo}
+                alt={`${c.name} logo`}
+                loading="lazy"
+                className="max-h-12 w-auto max-w-[140px] object-contain opacity-80 transition-all hover:opacity-100"
+              />
+            </a>
           ))}
         </div>
       </div>
