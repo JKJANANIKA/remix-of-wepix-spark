@@ -43,6 +43,13 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@wepix" },
+      { property: "og:title", content: "Wepix — Digital Agency for Shopify, WordPress, React & PHP" },
+      { name: "twitter:title", content: "Wepix — Digital Agency for Shopify, WordPress, React & PHP" },
+      { name: "description", content: "A modern, responsive website showcasing digital agency projects and lead generation." },
+      { property: "og:description", content: "A modern, responsive website showcasing digital agency projects and lead generation." },
+      { name: "twitter:description", content: "A modern, responsive website showcasing digital agency projects and lead generation." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5ddf34da-0aa0-405e-a66b-86cfe2f2db3a/id-preview-ff016868--554152c9-c9ce-4a99-9260-95034354b9ba.lovable.app-1776773673373.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5ddf34da-0aa0-405e-a66b-86cfe2f2db3a/id-preview-ff016868--554152c9-c9ce-4a99-9260-95034354b9ba.lovable.app-1776773673373.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
