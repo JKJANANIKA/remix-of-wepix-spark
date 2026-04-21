@@ -49,6 +49,7 @@
   --animate-shimmer: shimmer 2.5s linear infinite;
   --animate-glow: glow 3.5s ease-in-out infinite;
   --animate-gradient: gradient-x 8s ease infinite;
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 @keyframes fade-in {
@@ -78,6 +79,10 @@
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* LIGHT is the default brand mode — wepix.in inspired warm monochrome */
